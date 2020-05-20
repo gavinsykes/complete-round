@@ -10,7 +10,7 @@ function completeRound( number: number, rounding = 1, direction = 'closest', off
       d: string = direction,
       o: number = offset;
 
-  let maxDecimals: number = Math.max(numberOfDecimals(n),numberOfDecimals(r),numberOfDecimals(o));
+  let maxDecimals: number = Math.max(numberOfDecimals(r),numberOfDecimals(o));
 
   if (typeof n !== 'number') {
     throw new Error('You need to round a number!');
