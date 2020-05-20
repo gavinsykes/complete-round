@@ -202,6 +202,54 @@ const expectedResults = [
       direction : 'closest'
     },
     eR      : 0.3
+  },
+  {
+    testVal : {
+      number    : 0.1,
+      rounding  : 0.4325,
+      direction : 'up'
+    },
+    eR      : 0.4325
+  },
+  {
+    testVal : {
+      number    : 0.1,
+      rounding  : 0.4325,
+      direction : 'down'
+    },
+    eR      : 0
+  },
+  {
+    testVal : {
+      number    : 0.1,
+      rounding  : 0.4325,
+      direction : 'away'
+    },
+    eR      : 0.4325
+  },
+  {
+    testVal : {
+      number    : 0.1,
+      rounding  : 0.4325,
+      direction : 'towards'
+    },
+    eR      : 0
+  },
+  {
+    testVal : {
+      number    : 0.1,
+      rounding  : 0.4325,
+      direction : 'closest'
+    },
+    eR      : 0
+  },
+  {
+    testVal : {
+      number    : 0.21625,
+      rounding  : 0.4325,
+      direction : 'closest'
+    },
+    eR      : 0.4325
   }
 ];
 
