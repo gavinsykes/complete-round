@@ -311,6 +311,96 @@ const expectedResults = [
       offset    : 7
     },
     eR      : -3
+  },
+  {
+    testVal : {
+      number    : -7,
+      rounding  : -9,
+      direction : 'closest',
+      offset    : -3
+    },
+    eR      : -3
+  },
+  {
+    testVal : {
+      number    : -7,
+      rounding  : -9,
+      direction : 'up',
+      offset    : -3
+    },
+    eR      : -3
+  },
+  {
+    testVal : {
+      number    : -7,
+      rounding  : -9,
+      direction : 'down',
+      offset    : -3
+    },
+    eR      : -12
+  },
+  {
+    testVal : {
+      number    : -7,
+      rounding  : -9,
+      direction : 'away',
+      offset    : -3
+    },
+    eR      : -12
+  },
+  {
+    testVal : {
+      number    : -7,
+      rounding  : -9,
+      direction : 'towards',
+      offset    : -3
+    },
+    eR      : -3
+  },
+  {
+    testVal : {
+      number    : -0.45,
+      rounding  : 0.7,
+      direction : 'closest',
+      offset    : 0.034
+    },
+    eR      : -0.666
+  },
+  {
+    testVal : {
+      number    : -0.45,
+      rounding  : 0.7,
+      direction : 'up',
+      offset    : 0.034
+    },
+    eR      : 0.034
+  },
+  {
+    testVal : {
+      number    : -0.45,
+      rounding  : 0.7,
+      direction : 'down',
+      offset    : 0.034
+    },
+    eR      : -0.666
+  },
+  {
+    testVal : {
+      number    : -0.45,
+      rounding  : 0.7,
+      direction : 'away',
+      offset    : 0.034
+    },
+    eR      : -0.666
+  },
+  {
+    testVal : {
+      number    : -0.45,
+      rounding  : 0.7,
+      direction : 'towards',
+      offset    : 0.034
+    },
+    eR      : 0.034
   }
 ];
 
