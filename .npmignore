@@ -1,0 +1,5 @@
+tsconfig.json
+.travis.yml
+.nojekyll
+src/
+docs/
