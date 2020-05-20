@@ -1,7 +1,12 @@
 function numberOfDecimals(number: number): number {
-  return Math.floor(number) === number
-         ? 0
-         : parseInt(number.toString().split('.')[1].length) || 0;
+  if (Math.floor(+number) === +number) {
+    return 0;
+  }
+  let decs1: string = number.toString();
+  let decs2: string[] = decs1.split('.');
+  let decs3: string = decs2[1];
+  let decs4: number = Number(decs3.length);
+  return decs4;
 }
 
 function completeRound( number: number, rounding = 1, direction = 'closest' ): number {
@@ -39,16 +44,16 @@ function completeRound( number: number, rounding = 1, direction = 'closest' ): n
   };
   switch (d) {
     case 'down':
-      return bounds.lower;
+      return Number(bounds.lower.toFixed(maxDecimals));
       break;
     case 'up':
-      return bounds.upper;
+      return Number(bounds.upper.toFixed(maxDecimals));
       break;
     case 'towards':
-      return bounds.towards;
+      return Number(bounds.towards.toFixed(maxDecimals));
       break;
     case 'away':
-      return bounds.away;
+      return Number(bounds.away.toFixed(maxDecimals));
       break;
     case 'closest':
       let c: number = bounds.upper;
@@ -60,7 +65,7 @@ function completeRound( number: number, rounding = 1, direction = 'closest' ): n
       if (n - bounds.lower < bounds.upper - n) {
         c = bounds.lower;
       }
-      return c.toFixed(maxDecimals);
+      return Number(c.toFixed(maxDecimals));
       break;
     default:
       throw new Error(`Please select a valid rounding direction, it should default to 'closest' but other options are 'up', 'down', 'away' [from zero] and 'towards' [zero].`);
