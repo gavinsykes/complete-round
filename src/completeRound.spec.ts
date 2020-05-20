@@ -250,12 +250,73 @@ const expectedResults = [
       direction : 'closest'
     },
     eR      : 0.4325
+  },
+  {
+    testVal : {
+      number    : 0.2162499999,
+      rounding  : 0.4325,
+      direction : 'closest'
+    },
+    eR      : 0
+  },
+  {
+    testVal : {
+      number    : 0.21625000001,
+      rounding  : 0.4325,
+      direction : 'closest'
+    },
+    eR      : 0.4325
+  },
+  {
+    testVal : {
+      number    : 5,
+      rounding  : 10,
+      direction : 'closest',
+      offset    : 7
+    },
+    eR      : 7
+  },
+  {
+    testVal : {
+      number    : 5,
+      rounding  : 10,
+      direction : 'up',
+      offset    : 7
+    },
+    eR      : 7
+  },
+  {
+    testVal : {
+      number    : 5,
+      rounding  : 10,
+      direction : 'down',
+      offset    : 7
+    },
+    eR      : -3
+  },
+  {
+    testVal : {
+      number    : 5,
+      rounding  : 10,
+      direction : 'away',
+      offset    : 7
+    },
+    eR      : 7
+  },
+  {
+    testVal : {
+      number    : 5,
+      rounding  : 10,
+      direction : 'towards',
+      offset    : 7
+    },
+    eR      : -3
   }
 ];
 
-expectedResults.map(t => describe(`completeRound(${t.testVal.number},${t.testVal.rounding},${t.testVal.direction})`,() => {
+expectedResults.map(t => describe(`completeRound(${t.testVal.number}, ${t.testVal.rounding}, '${t.testVal.direction}', ${t.testVal.offset})`,() => {
   it(`should return ${t.eR}`, () => {
-    const result = completeRound(t.testVal.number,t.testVal.rounding,t.testVal.direction);
+    const result = completeRound(t.testVal.number,t.testVal.rounding,t.testVal.direction,t.testVal.offset);
     expect(result).to.equal(t.eR);
   });
 }));

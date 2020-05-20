@@ -1,18 +1,14 @@
 function numberOfDecimals(number: number): number {
-  if (Math.floor(+number) === +number) {
-    return 0;
-  }
-  let decs1: string = number.toString();
-  let decs2: string[] = decs1.split('.');
-  let decs3: string = decs2[1];
-  let decs4: number = Number(decs3.length);
-  return decs4;
+  return Math.floor(+number) === +number
+         ? 0
+         : number.toString().split('.')[1].length;
 }
 
-function completeRound( number: number, rounding = 1, direction = 'closest' ): number {
+function completeRound( number: number, rounding = 1, direction = 'closest', offset = 0 ): number {
   let n: number = +number,
       r: number = Math.abs(+rounding),
-      d: string = direction;
+      d: string = direction,
+      o: number = offset;
 
   let maxDecimals: number = Math.max(numberOfDecimals(n),numberOfDecimals(r));
 
@@ -20,10 +16,10 @@ function completeRound( number: number, rounding = 1, direction = 'closest' ): n
     throw new Error('You need to round a number!');
   }
 
-  if (n === 0) {
-    return 0;
+  if (n === o) {
+    return n;
   }
-  if (r === 1) {
+  if (r === 1 && o === Math.floor(o)) {
     if (d === 'down') {
       return Math.floor(number);
     }
@@ -33,14 +29,14 @@ function completeRound( number: number, rounding = 1, direction = 'closest' ): n
   }
 
   const bounds = {
-    lower   : Math.floor(n / r) * r,
-    upper   : Math.ceil(n / r) * r,
+    lower   : Math.floor((n - o) / r) * r + o,
+    upper   : Math.ceil((n - o) / r) * r + o,
     towards : n > 0
-              ? Math.floor(n / r) * r
-              : Math.ceil(n / r) * r,
+              ? Math.floor((n - o) / r) * r + o
+              : Math.ceil((n - o) / r) * r + o,
     away    : n > 0
-              ? Math.ceil(n / r) * r
-              : Math.floor(n / r) * r
+              ? Math.ceil((n - o) / r) * r + o
+              : Math.floor((n - o) / r) * r + o
   };
   switch (d) {
     case 'down':
