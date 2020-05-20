@@ -1,6 +1,6 @@
 {
   "name": "complete-round",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A function to offer more rounding options for numbers in JavaScript and TypeScript",
   "main": "dist/main.js",
   "scripts": {
