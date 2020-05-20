@@ -14,7 +14,7 @@ module.exports = {
   },
   output  : {
     filename      : 'main.js',
-    library       : 'complete_round',
+    library       : 'completeRound',
     libraryTarget : 'var',
     path          : path.resolve(__dirname, 'dist')
   },
