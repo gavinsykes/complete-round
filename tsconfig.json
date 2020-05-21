@@ -64,6 +64,6 @@
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
   "exclude": [
-    "./src/**/*.spec.ts"
+    "./dev/**/*.spec.ts"
   ]                                           /* Exclude specific files from being compiled i.e. test files */
 }
