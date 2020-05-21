@@ -3,3 +3,6 @@ tsconfig.json
 .nojekyll
 src/
 docs/
+
+// npm pack
+complete-round-*.tgz
