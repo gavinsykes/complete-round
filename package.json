@@ -29,12 +29,10 @@
     "url"  : "git+https://github.com/gavinsykes/complete-round.git"
   },
   "scripts"         : {
-    "build"       : "webpack --config webpack.config.js",
-    "clean"       : "shx rm -rf node_modules/ dist/ docs/",
-    "setup"       : "npm install",
-    "test"        : "mocha -r ts-node/register dev/**/*.spec.ts && echo \"REMEMBER TO BUILD BEFORE DEPLOYING\"",
-    "typedoc"     : "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/",
-    "posttypedoc" : "shx cp .nojekyll docs/.nojekyll"
+    "build"   : "webpack --config webpack.config.js",
+    "clean"   : "shx rm -rf node_modules/ dist/ docs/",
+    "test"    : "mocha -r ts-node/register dev/**/*.spec.ts",
+    "typedoc" : "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/"
   },
   "types"           : "./dist/index.d.ts",
   "version"         : "1.1.1"
