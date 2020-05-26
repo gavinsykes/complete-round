@@ -23,7 +23,7 @@ complete-round
 
 ### Installation
 
-`npm install completeRound`
+`npm install complete-round`
 
 ### Usage
 
