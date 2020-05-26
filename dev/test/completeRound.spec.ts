@@ -1,4 +1,4 @@
-import completeRound from './completeRound';
+import completeRound from '../src/completeRound';
 import { expect } from 'chai';
 import 'mocha';
 
