@@ -8,7 +8,7 @@ script:
   - npm run test
 
 after_success:
-  - npm run typedoc
+  - npm run docs
   - npm pack
 
 deploy:
