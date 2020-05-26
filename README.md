@@ -1,6 +1,12 @@
 complete-round
 ==============
 
+![npm](https://img.shields.io/npm/v/complete-round)
+![npm](https://img.shields.io/npm/dm/complete-round)
+![GitHub top language](https://img.shields.io/github/languages/top/gavinsykes/complete-round)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gavinsykes/complete-round)
+![NPM](https://img.shields.io/npm/l/complete-round)
+
 ## A function to offer more rounding options for numbers in JavaScript and TypeScript
 
 ### Function purposes:
