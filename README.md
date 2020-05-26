@@ -2,6 +2,7 @@ complete-round
 ==============
 
 ![npm](https://img.shields.io/npm/v/complete-round)
+![Travis (.com)](https://img.shields.io/travis/com/gavinsykes/complete-round)
 ![npm](https://img.shields.io/npm/dm/complete-round)
 ![GitHub top language](https://img.shields.io/github/languages/top/gavinsykes/complete-round)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gavinsykes/complete-round)
