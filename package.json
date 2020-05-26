@@ -46,7 +46,7 @@
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "docs": "typedoc",
     "clean-slate-protocol-sir": "shx rm -rf node_modules/ dist/ docs/",
-    "postversion": "git push && git push --tags",
+    "postversion": "git push origin master && git push origin master --tags",
     "setup": "npm install",
     "test": "mocha -r ts-node/register dev/**/*.spec.ts",
     "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/"
