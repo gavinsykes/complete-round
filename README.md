@@ -30,8 +30,11 @@ complete-round
 completeRound(number[, rounding[, direction[, offset]]]);
 
 - rounding defaults to 1
+   Must always be a number
 - direction defaults to 'closest'
+   Must be one of `closest`, `up`, `down`, `away` (from 0) or `towards` (0)
 - offset defaults to 0
+   Must always be a number
 
 ### Passing tests
 
