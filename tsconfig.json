@@ -63,7 +63,11 @@
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
-  "exclude": [
+  "exclude" : [
     "./dev/**/*.spec.ts"
-  ]                                           /* Exclude specific files from being compiled i.e. test files */
+  ],                                          /* Exclude specific files from being compiled i.e. test files */
+  "typedocOptions" : {
+    "mode" : "modules",
+    "out" : "./docs"
+  }                                           /* Set options for typedoc compliation */
 }
