@@ -1,5 +1,6 @@
 /**
- * @author Gavin Sykes <gavin@gavinsykes.uk>
+ * @author Gavin Sykes <gavin@gavinsykes.uk> (https://gavinsykes.uk/) [@gavinsykes_uk](https://twitter.com/gavinsykes_uk)
+ * @license MIT
  */
 
 /**
@@ -26,18 +27,19 @@ function numberOfDecimals(number: number): number {
  *
  * @returns {number} The rounded number
  *
+ * @throws Will throw a type error if the value to round is not a number.
  * @throws Will throw an error if argument direction is not 'closest', 'up', 'down', 'away', or 'towards'.
  */
 function completeRound( number: number, rounding = 1, direction = 'closest', offset = 0 ): number {
   let n: number = +number,
       r: number = Math.abs(+rounding),
       d: string = direction,
-      o: number = offset;
+      o: number = +offset;
 
   let maxDecimals: number = Math.max(numberOfDecimals(r),numberOfDecimals(o));
 
   if (typeof n !== 'number') {
-    throw new Error('You need to round a number!');
+    throw new TypeError('You need to round a number!');
   }
 
   if (n === o) {
