@@ -1,4 +1,8 @@
 node_modules
 dist
 
+<<<<<<< HEAD
 travisinfo.txt
+=======
+.travis.yml
+>>>>>>> f4786c52df8bd3d7506fc03e3f5dee69bc7de58d
