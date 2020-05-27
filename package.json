@@ -57,6 +57,8 @@
     "setup": "npm install",
     "test": "mocha -r ts-node/register dev/**/*.spec.ts",
     "test-cover": "nyc --reporter=lcov mocha -r ts-node/register dev/**/*.spec.ts | coveralls",
+    "test-html": "nyc --reporter=text --reporter=html mocha -r ts-node/register dev/**/*.spec.ts",
+    "test-text": "nyc --reporter=text mocha -r ts-node/register dev/**/*.spec.ts",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./dev/test/*",
     "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/"
   },
