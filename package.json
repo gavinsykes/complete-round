@@ -51,8 +51,7 @@
     "clean-slate-protocol-sir": "shx rm -rf node_modules/ dist/ docs/",
     "postversion": "git push origin master && git push origin master --tags",
     "setup": "npm install",
-    "test": "mocha",
-    "test-old": "mocha -r ts-node/register dev/**/*.spec.ts",
+    "test": "mocha -r ts-node/register dev/**/*.spec.ts",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./dev/test/*",
     "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/"
   },
