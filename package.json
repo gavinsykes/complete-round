@@ -48,7 +48,7 @@
     "ci": "npm run build && npm run cover",
     "clean": "shx rm -rf dist/ docs/",
     "cover": "istanbul cover _mocha dev/test/*.spec.ts - - -R spec",
-    "coveralls": "nyc report --reporter=text-lcov mocha -r ts-node/register dev/**/*.spec.ts | coveralls",
+    "coveralls": "nyc --reporter=lcov mocha -r ts-node/register dev/**/*.spec.ts | coveralls",
     "docs": "typedoc",
     "clean-slate-protocol-sir": "shx rm -rf node_modules/ dist/ docs/",
     "postversion": "git push origin master && git push origin master --tags",
@@ -56,6 +56,7 @@
     "preversion": "npm run ci",
     "setup": "npm install",
     "test": "mocha -r ts-node/register dev/**/*.spec.ts",
+    "test-cover": "nyc --reporter=lcov mocha -r ts-node/register dev/**/*.spec.ts | coveralls",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./dev/test/*",
     "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/"
   },
