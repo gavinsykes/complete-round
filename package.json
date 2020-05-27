@@ -48,7 +48,7 @@
     "ci": "npm run build && npm run cover",
     "clean": "shx rm -rf dist/ docs/",
     "cover": "istanbul cover _mocha dev/test/*.spec.ts - - -R spec",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "nyc report --reporter=text-lcov mocha -r ts-node/register dev/**/*.spec.ts | coveralls",
     "docs": "typedoc",
     "clean-slate-protocol-sir": "shx rm -rf node_modules/ dist/ docs/",
     "postversion": "git push origin master && git push origin master --tags",
