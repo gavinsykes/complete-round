@@ -46,7 +46,7 @@
     "build": "webpack --config webpack.config.js",
     "clean": "shx rm -rf dist/ docs/",
     "cover": "istanbul cover _mocha",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "docs": "typedoc",
     "clean-slate-protocol-sir": "shx rm -rf node_modules/ dist/ docs/",
     "postversion": "git push origin master && git push origin master --tags",
