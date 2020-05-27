@@ -67,16 +67,12 @@ function completeRound( number: number, rounding = 1, direction = 'closest', off
   switch (d) {
     case 'down':
       return Number(bounds.lower.toFixed(maxDecimals));
-      break;
     case 'up':
       return Number(bounds.upper.toFixed(maxDecimals));
-      break;
     case 'towards':
       return Number(bounds.towards.toFixed(maxDecimals));
-      break;
     case 'away':
       return Number(bounds.away.toFixed(maxDecimals));
-      break;
     case 'closest':
       let c: number = bounds.upper;
       if (n < 0) {
@@ -88,10 +84,8 @@ function completeRound( number: number, rounding = 1, direction = 'closest', off
         c = bounds.lower;
       }
       return Number(c.toFixed(maxDecimals));
-      break;
     default:
       throw new Error(`Please select a valid rounding direction, it should default to 'closest' but other options are 'up', 'down', 'away' [from zero] and 'towards' [zero].`);
-      break;  
   }
 };
 
