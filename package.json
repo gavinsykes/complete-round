@@ -47,7 +47,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "ci": "npm run build && npm run cover",
-    "clean": "shx rm -rf dist/ docs/",
+    "clean": "shx rm -rf coverage dist docs .nyc_output/",
     "cover": "istanbul cover _mocha dev/test/*.spec.ts - - -R spec",
     "coveralls": "nyc --reporter=lcov mocha -r ts-node/register dev/**/*.spec.ts | coveralls",
     "docs": "typedoc",
