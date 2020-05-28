@@ -46,22 +46,17 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "ci": "npm run build && npm run cover",
+    "ci": "npm run build && npm run test:cover",
     "clean": "shx rm -rf coverage dist docs .nyc_output/",
-    "cover": "istanbul cover _mocha dev/test/*.spec.ts - - -R spec",
     "coveralls": "nyc --reporter=lcov mocha -r ts-node/register dev/**/*.spec.ts | coveralls",
     "docs": "typedoc --theme minimal --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src",
     "clean-slate-protocol-sir": "shx rm -rf node_modules/ dist/ docs/",
-    "postversion": "git push origin master && git push origin master --tags",
+    "postversion": "git push origin master && git push origin master --tags && npm publish",
     "prepublishOnly": "npm run ci",
     "preversion": "npm run ci",
     "setup": "npm install",
     "test": "mocha -r ts-node/register dev/**/*.spec.ts",
-    "test-cover": "nyc --reporter=lcov mocha -r ts-node/register dev/**/*.spec.ts && cat ./coverage/lcov.info | coveralls",
-    "test-html": "nyc --reporter=text --reporter=html --reporter=json mocha -r ts-node/register dev/**/*.spec.ts",
-    "test-text": "nyc --reporter=text mocha -r ts-node/register dev/**/*.spec.ts",
-    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./dev/test/*",
-    "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/"
+    "test:cover": "nyc --reporter=text --reporter=html --reporter=json mocha -r ts-node/register dev/**/*.spec.ts && codecov"
   },
   "types": "./dist/index.d.ts",
   "version": "1.1.6"
