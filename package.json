@@ -50,7 +50,7 @@
     "clean": "shx rm -rf coverage dist docs .nyc_output/",
     "cover": "istanbul cover _mocha dev/test/*.spec.ts - - -R spec",
     "coveralls": "nyc --reporter=lcov mocha -r ts-node/register dev/**/*.spec.ts | coveralls",
-    "docs": "typedoc",
+    "docs": "typedoc --theme minimal --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src",
     "clean-slate-protocol-sir": "shx rm -rf node_modules/ dist/ docs/",
     "postversion": "git push origin master && git push origin master --tags",
     "prepublishOnly": "npm run ci",
