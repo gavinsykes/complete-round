@@ -48,7 +48,6 @@
     "clean-slate-protocol-sir": "shx rm -rf coverage dist docs node_modules .nyc_output",
     "docs": "typedoc --theme minimal --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src",
     "postversion": "git push origin master && git push origin master --tags && npm publish",
-    "prepublishOnly": "npm run ci",
     "preversion": "npm run ci",
     "setup": "npm install",
     "test": "mocha -r ts-node/register dev/**/*.spec.ts",
