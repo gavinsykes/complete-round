@@ -3,7 +3,7 @@ complete-round
 
 ![npm](https://img.shields.io/npm/v/complete-round)
 ![Travis (.com)](https://img.shields.io/travis/com/gavinsykes/complete-round)
-[![Coverage Status](https://coveralls.io/repos/github/gavinsykes/complete-round/badge.svg?branch=master)](https://coveralls.io/github/gavinsykes/complete-round?branch=master)
+[![codecov](https://codecov.io/gh/gavinsykes/complete-round/branch/master/graph/badge.svg)](https://codecov.io/gh/gavinsykes/complete-round)
 ![npm](https://img.shields.io/npm/dm/complete-round)
 ![GitHub top language](https://img.shields.io/github/languages/top/gavinsykes/complete-round)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gavinsykes/complete-round)
