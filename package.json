@@ -46,10 +46,11 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
+    "build:test": "",
     "ci": "npm run build && npm run test:cover",
-    "clean": "shx rm -rf coverage dist docs .nyc_output/",
+    "clean": "shx rm -rf coverage dist docs .nyc_output",
     "docs": "typedoc --theme minimal --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src",
-    "clean-slate-protocol-sir": "shx rm -rf node_modules/ dist/ docs/",
+    "clean-slate-protocol-sir": "shx rm -rf coverage dist docs node_modules .nyc_output",
     "postversion": "git push origin master && git push origin master --tags && npm publish",
     "prepublishOnly": "npm run ci",
     "preversion": "npm run ci",
