@@ -46,7 +46,7 @@
     "ci": "npm run build && npm run test:cover",
     "clean": "shx rm -rf coverage dist docs .nyc_output",
     "clean-slate-protocol-sir": "shx rm -rf coverage dist docs node_modules .nyc_output",
-    "docs": "typedoc --theme minimal --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src",
+    "docs": "typedoc --theme docs-theme --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src",
     "postversion": "git push origin master && git push origin master --tags && npm publish",
     "preversion": "npm run ci",
     "setup": "npm install",
