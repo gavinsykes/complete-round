@@ -4,8 +4,10 @@
  */
 
 /**
- * numberOfDecimals takes a number as its argument
- * The return value is the number of decimal places it has
+ * numberOfDecimals takes a number as its argument.
+ *
+ * The return value is the number of decimal places it has.
+ *
  * @param {number} number - the number that you wish to determine how many decimal places it has
  *
  * @returns {number} The number of decimal places
@@ -17,17 +19,22 @@ function numberOfDecimals(number: number): number {
 }
 
 /**
- * completeRound takes a number as its argument
- * The return value is that number, rounded
+ * completeRound takes a number as its argument.
+ *
+ * The return value is that number, rounded according to the given parameters.
  *
  * @param {number} number - the number that you wish to round
+ *
  * @param {number} [rounding = 1] - the accuracy to which you wish to round the number
+ *
  * @param {string} [direction = 'closest'] - the direction in which you wish to round the number
+ *
  * @param {number} [offset = 0] - the offset that you wish to apply to the number line
  *
  * @returns {number} The rounded number
  *
  * @throws Will throw a type error if the value to round is not a number.
+ *
  * @throws Will throw an error if argument direction is not 'closest', 'up', 'down', 'away', or 'towards'.
  */
 function completeRound( number: number, rounding = 1, direction = 'closest', offset = 0 ): number {
@@ -36,11 +43,11 @@ function completeRound( number: number, rounding = 1, direction = 'closest', off
       d: string = direction,
       o: number = +offset;
 
-  let maxDecimals: number = Math.max(numberOfDecimals(r),numberOfDecimals(o));
-
   if (typeof n !== 'number') {
     throw new TypeError('You need to round a number!');
   }
+
+  let maxDecimals: number = Math.max(numberOfDecimals(r),numberOfDecimals(o));
 
   if (n === o) {
     return n;
