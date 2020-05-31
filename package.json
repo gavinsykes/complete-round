@@ -54,5 +54,5 @@
     "test:cover": "nyc --reporter=text --reporter=html --reporter=json mocha -r ts-node/register dev/**/*.spec.ts && codecov"
   },
   "types": "./dist/index.d.ts",
-  "version": "1.3.0"
+  "version": "1.3.1"
 }
