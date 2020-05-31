@@ -10,6 +10,7 @@ script:
   - npm run test:cover
 
 after_success:
+  - codecov
   - npm run docs
   - npm pack
   - npm run build
