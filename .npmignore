@@ -1,8 +1,14 @@
-tsconfig.json
+tsconfig*.json
 .travis.yml
 .nojekyll
-src/
+dev/
 docs/
+coverage/
+docs-theme/
+.nyc_output
+travisinfo.txt
+.coveralls.yml
+codecov.yml
 
 // npm pack
 complete-round-*.tgz
