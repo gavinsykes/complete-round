@@ -27,6 +27,8 @@ complete-round
 
 `npm install complete-round`
 
+`<script src="https://unpkg.com/complete-round"></script>`
+
 ### Usage
 
 completeRound(number[, rounding[, direction[, offset]]]);
