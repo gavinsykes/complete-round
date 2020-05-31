@@ -35,6 +35,8 @@ function numberOfDecimals(number: number): number {
  *
  * @throws Will throw a type error if the value to round is not a number.
  *
+ * @throws Will throw an error if rounding accuracy is set to 0.
+ *
  * @throws Will throw an error if argument direction is not 'closest', 'up', 'down', 'away', or 'towards'.
  */
 function completeRound( number: number, rounding = 1, direction = 'closest', offset = 0 ): number {
@@ -45,6 +47,10 @@ function completeRound( number: number, rounding = 1, direction = 'closest', off
 
   if (typeof n !== 'number') {
     throw new TypeError('You need to round a number!');
+  }
+
+  if (r === 0) {
+    throw new Error(`You can't round a number to the nearest 0!`);
   }
 
   let maxDecimals: number = Math.max(numberOfDecimals(r),numberOfDecimals(o));
