@@ -413,3 +413,4 @@ expectedResults.map(t => describe(`completeRound(${t.testVal.number}, ${t.testVa
 
 // expect(() => completeRound([5])).to.throw(TypeError, /a number/);
 expect(() => completeRound(5,1,'arriba')).to.throw(Error, /valid rounding direction/);
+expect(() => completeRound(5,0)).to.throw(Error, /nearest 0/);
