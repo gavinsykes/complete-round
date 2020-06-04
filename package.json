@@ -50,7 +50,7 @@
     "postversion": "git push origin master && git push origin master --tags && npm publish",
     "preversion": "npm run build && npm run test && npm run docs && git add docs && git commit -m\"Updating docs\"",
     "setup": "npm install",
-    "test": "mocha -r ts-node/register dev/**/*.spec.ts",
+    "test": "mocha -r ts-node/register dev/**/*.spec.ts && alex",
     "test:cover": "nyc --reporter=text --reporter=html --reporter=json mocha -r ts-node/register dev/**/*.spec.ts && codecov"
   },
   "types": "./dist/index.d.ts",
