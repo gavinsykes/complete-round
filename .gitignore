@@ -3,5 +3,5 @@ dist/
 coverage/
 
 travisinfo.txt
-.coveralls.yml
 .nyc_output
+.codecov.yml
