@@ -404,13 +404,15 @@ const expectedResults = [
   }
 ];
 
+const testRoundArray: unknown = [5];
+
+expect(() => completeRound(testRoundArray as number)).to.throw(TypeError, /a number/);
+expect(() => completeRound(5,1,'arriba')).to.throw(Error, /valid rounding direction/);
+expect(() => completeRound(5,0)).to.throw(Error, /nearest 0/);
+
 expectedResults.map(t => describe(`completeRound(${t.testVal.number}, ${t.testVal.rounding}, '${t.testVal.direction}', ${t.testVal.offset})`,() => {
   it(`should return ${t.eR}`, () => {
     const result = completeRound(t.testVal.number,t.testVal.rounding,t.testVal.direction,t.testVal.offset);
     expect(result).to.equal(t.eR);
   });
 }));
-
-// expect(() => completeRound([5])).to.throw(TypeError, /a number/);
-expect(() => completeRound(5,1,'arriba')).to.throw(Error, /valid rounding direction/);
-expect(() => completeRound(5,0)).to.throw(Error, /nearest 0/);
