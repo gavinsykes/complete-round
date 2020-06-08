@@ -40,14 +40,14 @@ function numberOfDecimals(number: number): number {
  * @throws Will throw an error if argument direction is not 'closest', 'up', 'down', 'away', or 'towards'.
  */
 function completeRound( number: number, rounding = 1, direction = 'closest', offset = 0 ): number {
+  if (typeof number !== 'number') {
+    throw new TypeError('You need to round a number!');
+  }
+
   let n: number = +number,
       r: number = Math.abs(+rounding),
       d: string = direction,
       o: number = +offset;
-
-  if (typeof n !== 'number') {
-    throw new TypeError('You need to round a number!');
-  }
 
   if (r === 0) {
     throw new Error(`You can't round a number to the nearest 0!`);
