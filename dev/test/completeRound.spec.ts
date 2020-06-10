@@ -401,18 +401,41 @@ const expectedResults = [
       offset    : 0.034
     },
     eR      : 0.034
+  },
+  {
+    testVal : {
+      number        : -0.45,
+      rounding      : 0,
+      direction     : 'towards',
+      offset        : 0.034,
+      supressErrors : true
+    },
+    eR      : -0.45
+  },
+  {
+    testVal : {
+      number        : -0.45,
+      rounding      : 0.7,
+      direction     : 'arriba',
+      offset        : 0.034,
+      supressErrors : true
+    },
+    eR      : -0.45
   }
 ];
 
 const testRoundArray: unknown = [5];
+const testRoundString: unknown = 'seven';
 
 expect(() => completeRound(testRoundArray as number)).to.throw(TypeError, /a number/);
 expect(() => completeRound(5,1,'arriba')).to.throw(Error, /valid rounding direction/);
 expect(() => completeRound(5,0)).to.throw(Error, /nearest 0/);
 
-expectedResults.map(t => describe(`completeRound(${t.testVal.number}, ${t.testVal.rounding}, '${t.testVal.direction}', ${t.testVal.offset})`,() => {
+expect(completeRound(testRoundString as number,0.7,'towards',0.034,true)).to.equal(0);
+
+expectedResults.map(t => describe(`completeRound(${t.testVal.number}, ${t.testVal.rounding}, '${t.testVal.direction}', ${t.testVal.offset}, ${t.testVal.supressErrors})`,() => {
   it(`should return ${t.eR}`, () => {
-    const result = completeRound(t.testVal.number,t.testVal.rounding,t.testVal.direction,t.testVal.offset);
+    const result = completeRound(t.testVal.number,t.testVal.rounding,t.testVal.direction,t.testVal.offset,t.testVal.supressErrors);
     expect(result).to.equal(t.eR);
   });
 }));

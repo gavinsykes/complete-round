@@ -44,7 +44,7 @@ function numberOfDecimals(number: number): number {
 function completeRound( number: number, rounding = 1, direction = 'closest', offset = 0, supressErrors = false ): number {
   if (typeof number !== 'number') {
     if (supressErrors) {
-      return number;
+      return 0;
     } else {
       throw new TypeError('You need to round a number!');
     }
