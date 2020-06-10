@@ -31,6 +31,8 @@ function numberOfDecimals(number: number): number {
  *
  * @param {number} [offset = 0] - the offset that you wish to apply to the number line
  *
+ * @param {boolean} [supressErrors = false] - supress error reporting - only recommended outside production
+ *
  * @returns {number} The rounded number
  *
  * @throws Will throw a type error if the value to round is not a number.
@@ -39,9 +41,13 @@ function numberOfDecimals(number: number): number {
  *
  * @throws Will throw an error if argument direction is not 'closest', 'up', 'down', 'away', or 'towards'.
  */
-function completeRound( number: number, rounding = 1, direction = 'closest', offset = 0 ): number {
+function completeRound( number: number, rounding = 1, direction = 'closest', offset = 0, supressErrors = false ): number {
   if (typeof number !== 'number') {
-    throw new TypeError('You need to round a number!');
+    if (supressErrors) {
+      return number;
+    } else {
+      throw new TypeError('You need to round a number!');
+    }
   }
 
   let n: number = +number,
@@ -50,7 +56,11 @@ function completeRound( number: number, rounding = 1, direction = 'closest', off
       o: number = +offset;
 
   if (r === 0) {
-    throw new Error(`You can't round a number to the nearest 0!`);
+    if (supressErrors) {
+      return n;
+    } else {
+      throw new Error(`You can't round a number to the nearest 0!`);
+    }
   }
 
   let maxDecimals: number = Math.max(numberOfDecimals(r),numberOfDecimals(o));
@@ -98,7 +108,11 @@ function completeRound( number: number, rounding = 1, direction = 'closest', off
       }
       return Number(c.toFixed(maxDecimals));
     default:
-      throw new Error(`Please select a valid rounding direction, it should default to 'closest' but other options are 'up', 'down', 'away' [from zero] and 'towards' [zero].`);
+      if (supressErrors) {
+        return n;
+      } else {
+        throw new Error(`Please select a valid rounding direction, it should default to 'closest' but other options are 'up', 'down', 'away' [from zero] and 'towards' [zero].`);
+      }
   }
 };
 
