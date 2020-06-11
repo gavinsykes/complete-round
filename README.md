@@ -52,7 +52,7 @@ completeRound(number[, rounding[, direction[, offset[, supressErrors]]]]);
 - supressErrors defaults to false
    Must be a boolean
 
-   - **CARE NEEDED** - this will, by definition, not report any errors, and, if such an error occurs, it will simply return the number it was given to round.
+   - **CARE NEEDED** - this will, by definition, not report any errors, and, if such an error occurs, it will just return the number it was given to round.
 
 ### Passing tests
 
