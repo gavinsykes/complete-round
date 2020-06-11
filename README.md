@@ -21,7 +21,10 @@ complete-round
    - Down
    - Away from 0
    - Towards 0
-- **NEW** allow the user to specify an offset
+- allow the user to specify an offset
+   - _Default: 0_
+- **NEW** allow supression of error reporting (_not recommended in production!_)
+   - _Default: false_
 
 ### Installation
 
@@ -31,14 +34,25 @@ complete-round
 
 ### Usage
 
-completeRound(number[, rounding[, direction[, offset]]]);
+completeRound(number[, rounding[, direction[, offset[, supressErrors]]]]);
 
 - rounding defaults to 1
    Must always be a number
 - direction defaults to 'closest'
    Must be one of `closest`, `up`, `down`, `away` (from 0) or `towards` (0)
+
+   - `up` will always move up the number line, for positive numbers this will be away from 0 and for negative numbers it will be towards 0.
+   - `down` will always move down the number line, for positive numbers this will be towards 0 and for negative numbers it will be away from 0.
+   - `away` will always move away from 0, for positive numbers this has the effect of rounding up and for negative numbers it has the effect of rounding down.
+   - `towards` will always move towards 0, for positive numbers this has the effect of rounding down and for negative numbers it has the effect of rounding up.
 - offset defaults to 0
    Must always be a number
+
+   - This is useful, for example, if you want to round a number to the nearest number that ends in 7 (7, 17, 27 etc.), you would set the rounding to 10 and set the offset to 7. Be careful however, as this example will result in any negative numbers being rounded to the nearest number ending in 3.
+- supressErrors defaults to false
+   Must be a boolean
+
+   - **CARE NEEDED** - this will, by definition, not report any errors, and, if such an error occurs, it will simply return the number it was given to round.
 
 ### Passing tests
 
@@ -233,3 +247,11 @@ completeRound(-0.45, 0.7, 'away', 0.034)
 completeRound(-0.45, 0.7, 'towards', 0.034)
 
 ✔️ should return 0.034
+
+completeRound(-0.45, 0, 'towards', 0.034, true)
+
+✔️ should return -0.45
+
+completeRound(-0.45, 0.7, 'arriba', 0.034, true)
+
+✔️ should return -0.45
