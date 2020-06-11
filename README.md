@@ -37,8 +37,10 @@ complete-round
 completeRound(number[, rounding[, direction[, offset[, supressErrors]]]]);
 
 - rounding defaults to 1
+
    Must always be a number
 - direction defaults to 'closest'
+
    Must be one of `closest`, `up`, `down`, `away` (from 0) or `towards` (0)
 
    - `up` will always move up the number line, for positive numbers this will be away from 0 and for negative numbers it will be towards 0.
@@ -46,13 +48,15 @@ completeRound(number[, rounding[, direction[, offset[, supressErrors]]]]);
    - `away` will always move away from 0, for positive numbers this has the effect of rounding up and for negative numbers it has the effect of rounding down.
    - `towards` will always move towards 0, for positive numbers this has the effect of rounding down and for negative numbers it has the effect of rounding up.
 - offset defaults to 0
+
    Must always be a number
 
    - This is useful, for example, if you want to round a number to the nearest number that ends in 7 (7, 17, 27 etc.), you would set the rounding to 10 and set the offset to 7. Be careful however, as this example will result in any negative numbers being rounded to the nearest number ending in 3.
 - supressErrors defaults to false
+
    Must be a boolean
 
-   - **CARE NEEDED** - this will, by definition, not report any errors, and, if such an error occurs, it will return the number it was given to round.
+   - **CARE NEEDED** - this will, by definition, not report any errors, and, if such an error occurs, it will only return the number it was given to round.
 
 ### Passing tests
 
