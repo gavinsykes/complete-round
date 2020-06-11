@@ -2757,7 +2757,14 @@ img {
 						<li>Towards 0</li>
 					</ul>
 				</li>
-				<li><strong>NEW</strong> allow the user to specify an offset</li>
+				<li>allow the user to specify an offset<ul>
+						<li><em>Default: 0</em></li>
+					</ul>
+				</li>
+				<li><strong>NEW</strong> allow supression of error reporting (<em>not recommended in production!</em>)<ul>
+						<li><em>Default: false</em></li>
+					</ul>
+				</li>
 			</ul>
 			<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 				<h3>Installation</h3>
@@ -2767,14 +2774,32 @@ img {
 			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 				<h3>Usage</h3>
 			</a>
-			<p>completeRound(number[, rounding[, direction[, offset]]]);</p>
+			<p>completeRound(number[, rounding[, direction[, offset[, supressErrors]]]]);</p>
 			<ul>
-				<li>rounding defaults to 1
-				Must always be a number</li>
-				<li>direction defaults to &#39;closest&#39;
-				Must be one of <code>closest</code>, <code>up</code>, <code>down</code>, <code>away</code> (from 0) or <code>towards</code> (0)</li>
-				<li>offset defaults to 0
-				Must always be a number</li>
+				<li><p>rounding defaults to 1
+					Must always be a number</p>
+				</li>
+				<li><p>direction defaults to &#39;closest&#39;
+					Must be one of <code>closest</code>, <code>up</code>, <code>down</code>, <code>away</code> (from 0) or <code>towards</code> (0)</p>
+					<ul>
+						<li><code>up</code> will always move up the number line, for positive numbers this will be away from 0 and for negative numbers it will be towards 0.</li>
+						<li><code>down</code> will always move down the number line, for positive numbers this will be towards 0 and for negative numbers it will be away from 0.</li>
+						<li><code>away</code> will always move away from 0, for positive numbers this has the effect of rounding up and for negative numbers it has the effect of rounding down.</li>
+						<li><code>towards</code> will always move towards 0, for positive numbers this has the effect of rounding down and for negative numbers it has the effect of rounding up.</li>
+					</ul>
+				</li>
+				<li><p>offset defaults to 0
+					Must always be a number</p>
+					<ul>
+						<li>This is useful, for example, if you want to round a number to the nearest number that ends in 7 (7, 17, 27 etc.), you would set the rounding to 10 and set the offset to 7. Be careful however, as this example will result in any negative numbers being rounded to the nearest number ending in 3.</li>
+					</ul>
+				</li>
+				<li><p>supressErrors defaults to false
+					Must be a boolean</p>
+					<ul>
+						<li><strong>CARE NEEDED</strong> - this will, by definition, not report any errors, and, if such an error occurs, it will return the number it was given to round.</li>
+					</ul>
+				</li>
 			</ul>
 			<a href="#passing-tests" id="passing-tests" style="color: inherit; text-decoration: none;">
 				<h3>Passing tests</h3>
@@ -2875,6 +2900,10 @@ img {
 			<p>✔️ should return -0.666</p>
 			<p>completeRound(-0.45, 0.7, &#39;towards&#39;, 0.034)</p>
 			<p>✔️ should return 0.034</p>
+			<p>completeRound(-0.45, 0, &#39;towards&#39;, 0.034, true)</p>
+			<p>✔️ should return -0.45</p>
+			<p>completeRound(-0.45, 0.7, &#39;arriba&#39;, 0.034, true)</p>
+			<p>✔️ should return -0.45</p>
 		</div>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
