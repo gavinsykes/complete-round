@@ -4,4 +4,4 @@ coverage/
 
 travisinfo.txt
 .nyc_output
-.codecov.yml
+codecov.yml

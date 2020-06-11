@@ -7,7 +7,6 @@ coverage/
 docs-theme/
 .nyc_output
 travisinfo.txt
-.coveralls.yml
 codecov.yml
 
 // npm pack
