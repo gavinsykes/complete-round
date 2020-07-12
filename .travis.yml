@@ -11,6 +11,3 @@ script:
 
 after_success:
   - codecov
-  - npm run docs
-  - npm pack
-  - npm run build
