@@ -50,7 +50,7 @@ function completeRound( number: number, rounding = 1, direction = 'closest', off
     }
   }
 
-  let n: number = +number,
+  const n: number = +number,
       r: number = Math.abs(+rounding),
       d: string = direction,
       o: number = +offset;
@@ -63,7 +63,7 @@ function completeRound( number: number, rounding = 1, direction = 'closest', off
     }
   }
 
-  let maxDecimals: number = Math.max(numberOfDecimals(r),numberOfDecimals(o));
+  const maxDecimals: number = Math.max(numberOfDecimals(r),numberOfDecimals(o));
 
   if (n === o) {
     return n;
@@ -87,6 +87,7 @@ function completeRound( number: number, rounding = 1, direction = 'closest', off
               ? Math.ceil((n - o) / r) * r + o
               : Math.floor((n - o) / r) * r + o
   };
+  let c:number;
   switch (d) {
     case 'down':
       return Number(bounds.lower.toFixed(maxDecimals));
@@ -97,7 +98,7 @@ function completeRound( number: number, rounding = 1, direction = 'closest', off
     case 'away':
       return Number(bounds.away.toFixed(maxDecimals));
     case 'closest':
-      let c: number = bounds.upper;
+      c = bounds.upper;
       if (n < 0) {
         if (n - bounds.upper <= bounds.lower - n) {
           c = bounds.lower;
