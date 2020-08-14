@@ -59,7 +59,7 @@
     "setup": "npm install",
     "test": "mocha -r ts-node/register dev/**/*.spec.ts && alex && npx eslint ./dev/**/*",
     "test:codecov": "npm run test:cover && codecov",
-    "test:cover": "nyc --reporter=text --reporter=text-lcov --reporter=html --reporter=json mocha -r ts-node/register dev/**/*.spec.ts"
+    "test:cover": "nyc --reporter=text --reporter=text-lcov --reporter=text-gcov --reporter=html --reporter=json mocha -r ts-node/register dev/**/*.spec.ts"
   },
   "types": "./dist/index.d.ts",
   "version": "1.4.3"
