@@ -4,6 +4,7 @@ node_js:
 
 before_script:
   - npm run setup
+  - npm install -g codecov
   - npm run build
 
 script:
