@@ -16,7 +16,7 @@
     "codecov": "^3.7.0",
     "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
-    "mocha": "^7.1.2",
+    "mocha": "^10.2.0",
     "nyc": "^15.0.1",
     "prettier": "^2.0.5",
     "shx": "^0.3.2",
